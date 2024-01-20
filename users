@@ -1,3 +1,7 @@
+#!/bin/bash
+password="12qw!@QW"
+echo Our password is $password
+
 for usr in `sudo cut -d: -f 1 /etc/passwd | sort -r`; do
           echo "Assigning $usr secure password."
           sudo passwd -u $usr
