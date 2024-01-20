@@ -4,5 +4,5 @@ echo Our password is $password
 
 for usr in `sudo cut -d: -f 1 /etc/passwd | sort -r`; do
           echo "Assigning $usr secure password."
-          sudo echo -e "$password\n$password" | (passwd $usr) > /dev/null 2>&1
+          echo "$usr:$password" | sudo chpasswd
 done
