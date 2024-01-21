@@ -1,8 +1,15 @@
 #!/bin/bash
+#change to take keyboard input
 password="12qw!@QW"
 echo Our password is $password
+echo "" > passwdchanges.txt
 
-for usr in `sudo cut -d: -f 1 /etc/passwd | sort -r`; do
+#Lock Root account
+usermod -L root
+
+#Users with  uids > 1000
+for usr in $(awk -F: '$3 >= 1000 {print $1}' /etc/passwd | sort -r); do
           echo "Assigning $usr secure password."
           echo "$usr:$password" | sudo chpasswd
+          echo "$usr" >> passwdchanges.txt
 done
