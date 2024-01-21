@@ -1,0 +1,10 @@
+# TO-DO
+- Permissions: (Check)
+    - /etc/passwd, shadow, group
+    - chattr
+- Discover IP and OS
+- Look at logged in users
+- Get a list of users to a users.txt file (login shells, uids)
+- Get a list of services, record all blocked ports
+- Get a list of listening ports, record all suspicious / noteable ports
+- Check running processes of sussy activity
