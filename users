@@ -13,3 +13,10 @@ for usr in $(awk -F: '$3 >= 1000 {print $1}' /etc/passwd | sort -r); do
           echo "$usr:$password" | sudo chpasswd
           echo "$usr" >> passwdchanges.txt
 done
+
+#Service Accountss
+for usr in $(awk -F: '$3 < 1000 {print $1}' /etc/passwd | sort -r); do
+          echo "Assigning $usr secure password."
+          echo "$usr:$password" | sudo chpasswd
+          echo "$usr" >> passwdchanges.txt
+done
